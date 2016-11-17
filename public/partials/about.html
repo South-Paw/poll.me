@@ -1,0 +1,61 @@
+<div class="header">
+    <nav class="navbar navbar-default navbar-app navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                    <span class="navbar-text visible-xs"><i class="fa fa-fw fa-bars"></i> Menu</span>
+                </button>
+                <a class="navbar-brand" href="{{ siteUrl }}">poll.me</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ siteUrl }}/#/polls">Polls</a></li>
+                    <li><a href="{{ siteUrl }}/#/about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-header text-center">
+                    <h2>The About Page</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <h3>What it does</h3>
+                <p>The poll.me site is polling site that allows a user to vote on polls that are currently running.</p>
+                <p>The front end of the application is an AngularJS app with RESTful services provided in the back end.</p>
+                <p>The application is built with the Codeigniter PHP library but this is mostly for the ease of use regarding routing and database queries.</p>
+                <p>The front page of the application shows all active polls, clicking on one loads the view for that poll with the question and answer(s) shown. Clicking on an answer will vote for that choice and take the user to the results page (which will have recorded their answer).</p>
+                <p>I have provided a 'Reset Votes' button on the results page which resets all votes for this poll. Ideally this would only be displayed to the admin of the website however I did not implement login/session functionality.</p>
+                <hr />
+                <h3>Usage Notes</h3>
+                <p>The front end of the site is available at the expected studweb route. From there, all routing is through the AngularJS routing library.</p>
+                <p>The RESTful services are available one the <code>/services/...</code> route and are implemented as per the documentation.</p>
+                <hr />
+                <h3>Design Choices</h3>
+                <p><strong>Again, Bootstrap (specifically <a href="https://bootswatch.com/superhero/">Bootswatch Superhero</a>) was used for the site layout.</strong> It was easier than writing my own styling from the ground up however I did write 51 lines of extra CSS.</p>
+                <p><strong>The <code>/services/polls/:id</code> service returns doesn't return just a list of answer strings; instead it returns an object with each answer identified by it's id.</strong> By doing this, it meant that there was no assumptions when submiting an answer back to the server and I could check to see if the submitted answer id acutually was a valid answer id for the poll.</p>
+                <p><strong>The code and layout is clean.</strong> I tried really hard to ensure that the code completed is extensible and not all over the place (like some others I saw). It's documented, clean and there's no more present than there needs to be to get the job done. Each route to the services controller goes to one function and each function points to one other in the model.</p>
+                <hr />
+                <h3>Known bugs</h3>
+                <ul>
+                    <li>None that I know of.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer text-center">
+    <div class="container">
+        <hr />
+        <p>Polls Assignment for SENG365<br />&copy; Alex Gabites 2016</p>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="header">
+    <nav class="navbar navbar-default navbar-app navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                    <span class="navbar-text visible-xs"><i class="fa fa-fw fa-bars"></i> Menu</span>
+                </button>
+                <a class="navbar-brand" href="{{ siteUrl }}">poll.me</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ siteUrl }}/#/polls">Polls</a></li>
+                    <li><a href="{{ siteUrl }}/#/about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="app">
+    <div class="container">
+        <div ng-repeat="thisPoll in poll">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <div class="panel panel-primary panel-poll">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{ thisPoll.title }}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>{{ thisPoll.question }}</p>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-group-item" ng-repeat="answer in thisPoll.answers"><span class="badge">{{ votes.votes[answer.id] || 0 }} votes</span> {{ answer.answer }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-2"><a href="{{ siteUrl }}" class="btn btn-block btn-warning">&laquo; Back to Polls</a></div>
+                <div class="col-md-offset-2 col-md-2"><a class="btn btn-block btn-danger" ng-click="resetVotes(thisPoll.id)">Reset Votes</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer text-center">
+    <div class="container">
+        <hr />
+        <p>Polls Assignment for SENG365<br />&copy; Alex Gabites 2016</p>
+    </div>
+</div>
